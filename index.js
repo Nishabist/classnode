@@ -16,6 +16,15 @@ app.get('/users', (req, res) => {
   res.send(searchlist)
 })
 
+app.get('/users/:id', (req, res) => {
+  const userlist=users.filter((items,id)=>{
+    if(items.id==req.params.id){
+      return items
+    }
+  })
+  res.send(userlist)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
