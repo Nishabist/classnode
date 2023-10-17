@@ -31,6 +31,20 @@ users.push(req.body)
 res.json({users})
 })
 
+
+app.put('/users/:id',(req,res)=>{
+ const editlist=users.map((items,id)=>{
+if(items.id==req.params.id){
+  items=req.body
+}
+return items
+})
+console.log(editlist);
+res.send(editlist)
+ 
+ // console.log(req.params.id)
+ //console.log(req.body)
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
